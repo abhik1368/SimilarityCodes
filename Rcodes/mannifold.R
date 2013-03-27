@@ -1,3 +1,9 @@
+
+##########################################################
+# This is taken from Michale trosset course on STATS-675
+#http://mypage.iu.edu/~mtrosset/Courses/675/manifold.r
+##########################################################
+
 mds.edm1 <- function(X) {
   #
   #  Computes an EDM-1 from a data matrix.
