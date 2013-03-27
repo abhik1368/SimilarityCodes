@@ -1,4 +1,3 @@
-
 kmeans.start <- function(N,k) {
   j <- sample(x=1:N,size=k,replace=F)
   return(j)
@@ -10,6 +9,10 @@ kmeans.start <- function(N,k) {
 #  clusters or their representatives, only the corresponding
 #  value of the error criterion.  However, they can easily
 #  be modified to return clusters and/or representatives.
+
+# The code is taken from Michael Trosset course on statistical learning STATS-675
+#http://mypage.iu.edu/~mtrosset/Courses/675/kmeans.r
+
 
 
 kmeans.macqueen <- function(X,j,niter=2000) {
