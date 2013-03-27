@@ -30,15 +30,6 @@ data2 <- data.frame(U1,U2,U3,U4,U5, row.names=paste("Item",1:7,sep=""))
 
 my.user.pearson <- cor(user,use="pairwise.complete.obs",method="pearson")
 
-# meandiff <- function(data,i){
-#   if(is.matrix(data)){
-#     data[,i] - mean(data[,i])
-#   }
-#   else{
-#     data[i] - mean(data[i])
-#   }
-# }
-
 meandiff <- function(data,i){
   data[,i] - mean(data[,i])
 }
@@ -176,11 +167,37 @@ tanimotosim <- function(x) {
 my.tanimoto.data2 <- tanimotosim(data2)
 my.tanimoto.user <- tanimotosim(user)
 
+
 ###############################
-# 5 - LogLikelihood Similarity (LLR)
+# 5 Dice Similarity This is a 
+#fast algorithm for computing dice similarity referenced on 
+#http://blog.rguha.net/
+
 ###############################
 
-# R automatically handles the 0*log(0) situation, no need to create safeLog() function
+
+dice.sim<-function(x){
+
+ m <- matrix(NA, nrow=ncol(x),ncol=ncol(x),dimnames=list(colnames(x),colnames(x)))
+  dice <- as.data.frame(m) 
+  x[is.na(x)]<-0
+  dice<-x%*%t(x)
+  rs<-rowSums(x)  
+  for (i in 1:length(dice)){
+         for (j in 1:length(dice)){
+              m[i,j]=(2*(dice[i,j])/(rs[i]+rs[j]))
+  }
+} 
+  return(m) 
+
+}
+
+
+
+###############################
+# 6 - LogLikelihood Similarity (LLR)
+###############################
+
 my.entropy <- function(x){
   cellsize <- x/sum(x,na.rm=TRUE)
   shannon.entropy <- -sum(cellsize*log(cellsize),na.rm=TRUE)
