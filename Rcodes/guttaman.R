@@ -1,3 +1,14 @@
+
+#######################################
+# The code is taken from Michael Trosset course on statistical learning STATS-675
+#http://mypage.iu.edu/~mtrosset/Courses/675/kmeans.r
+#This is the guttman majorization algorithm ,a ﬁxed point method that converges to a connected
+#set of stationary X.
+
+
+
+
+
 mds.stress.raw.eq <- function(X,Delta) {
   #
   # raw stress criterion with equal weights
