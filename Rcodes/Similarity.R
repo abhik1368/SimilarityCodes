@@ -1,5 +1,6 @@
 ###########################################################
-# Written by Abhik Seal (abhik1368@gmail.com)             #    
+# Written by Abhik Seal (abhik1368@gmail.com)        
+#for http://inpho.cogs.indiana.edu/datablog/stat-s-675-and-s-475/    
 ###########################################################
 # sample data 1
 Mov1 <- c(4,4,3,4,2)
