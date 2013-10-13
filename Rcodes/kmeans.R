@@ -10,10 +10,6 @@ kmeans.start <- function(N,k) {
 #  value of the error criterion.  However, they can easily
 #  be modified to return clusters and/or representatives.
 
-# The code is taken from Michael Trosset course on statistical learning STATS-675
-#http://mypage.iu.edu/~mtrosset/Courses/675/kmeans.r
-
-
 
 kmeans.macqueen <- function(X,j,niter=2000) {
   N <- nrow(X)
